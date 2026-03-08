@@ -1,0 +1,57 @@
+{
+  "totalRuns": 34,
+  "totalKm": "339",
+  "recentKm": "0.0",
+  "recentRuns": [
+    {
+      "name": "Run",
+      "distance": "6.5 km",
+      "pace": "6:17 /km",
+      "date": "Feb 3",
+      "elapsed": "40m 51s"
+    },
+    {
+      "name": "Run",
+      "distance": "10.0 km",
+      "pace": "6:15 /km",
+      "date": "Feb 2",
+      "elapsed": "1h 2m"
+    },
+    {
+      "name": "Run",
+      "distance": "11.1 km",
+      "pace": "7:03 /km",
+      "date": "Jan 13",
+      "elapsed": "1h 18m"
+    },
+    {
+      "name": "Run",
+      "distance": "10.0 km",
+      "pace": "7:13 /km",
+      "date": "Jan 10",
+      "elapsed": "1h 12m"
+    },
+    {
+      "name": "Morning run | Die hard",
+      "distance": "21.2 km",
+      "pace": "5:56 /km",
+      "date": "Oct 26",
+      "elapsed": "2h 6m"
+    },
+    {
+      "name": "Evening run | Mitridat",
+      "distance": "17.0 km",
+      "pace": "7:20 /km",
+      "date": "Oct 21",
+      "elapsed": "2h 4m"
+    },
+    {
+      "name": "Evening run | Mitridat",
+      "distance": "16.0 km",
+      "pace": "7:08 /km",
+      "date": "Oct 17",
+      "elapsed": "1h 54m"
+    }
+  ],
+  "updated": "2026-03-08T03:37:25.174Z"
+}
