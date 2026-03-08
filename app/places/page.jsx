@@ -1,18 +1,23 @@
 import { SITE_DATA, SITE_URL } from "@/lib/data";
 
 export const metadata = {
-  title: "Places",
-  description: "Mountains, waterfalls, and trails Shohbaxt has visited around Tashkent — Chimgan, Beldersay, Charvak and more.",
+  title: "Hikes",
+  description: "Mountains, waterfalls, and trails Shohbaxt has visited in Tashkent",
   alternates: { canonical: `${SITE_URL}/places` },
 };
 
 const typeLabels = ["peak", "waterfall", "lake", "canyon"];
 
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
 export default function PlacesPage() {
   return (
     <div>
       <h2 className="section-title">
-        Recently hiked places
+        Recently hiked trails
         <span className="text-small" style={{ fontWeight: "normal", color: "var(--faint)", marginLeft: "8px" }}>
           via Tripz
         </span>
@@ -34,7 +39,7 @@ export default function PlacesPage() {
                 <span className={`marker marker-${p.type}`} />
                 {p.name}
               </span>
-              <span className="text-small" style={{ color: "var(--faint)" }}>{p.date}</span>
+              <span className="text-small" style={{ color: "var(--faint)" }}>{formatDate(p.date)}</span>
             </div>
             <div className="text-small" style={{ marginTop: "2px", color: "var(--muted)" }}>
               {p.type} &middot; <span className="font-mono">{p.elevation}</span>
@@ -62,7 +67,7 @@ export default function PlacesPage() {
               </td>
               <td className="text-small">{p.type}</td>
               <td className="font-mono">{p.elevation}</td>
-              <td className="text-small" style={{ color: "var(--faint)" }}>{p.date}</td>
+              <td className="text-small" style={{ color: "var(--faint)" }}>{formatDate(p.date)}</td>
             </tr>
           ))}
         </tbody>
