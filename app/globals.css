@@ -250,15 +250,15 @@ a:visited {
   border: 1px solid var(--muted);
 }
 
-.marker-peak { background: #c44; }
+.marker-peak { background: #e89830; }
 .marker-waterfall { background: #48c; }
 .marker-lake { background: #4a9; }
-.marker-canyon { background: #c84; }
+.marker-canyon { background: #8a6dba; }
 
-[data-theme="dark"] .marker-peak { background: #e55; }
+[data-theme="dark"] .marker-peak { background: #f0a040; }
 [data-theme="dark"] .marker-waterfall { background: #5af; }
 [data-theme="dark"] .marker-lake { background: #5cb; }
-[data-theme="dark"] .marker-canyon { background: #e95; }
+[data-theme="dark"] .marker-canyon { background: #a88de0; }
 
 /* Footer */
 .site-footer {

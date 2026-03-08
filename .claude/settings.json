@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(npm install)",
-      "Bash(npx next build)"
+      "Bash(npx next build)",
+      "Bash(SPOTIFY_CLIENT_SECRET=\"7e206ae0619144e1bd355f3da8b9f747\" node scripts/get-refresh-token.js)",
+      "Bash(SPOTIFY_CLIENT_SECRET=\"7e206ae0619144e1bd355f3da8b9f747\" node scripts/get-refresh-token.js \"AQB4Q5GPGTbhlezvKdleCQUxd8R1LnnPaZyEfdnrJxYU6wzQY1rnD0UJkixvRYz0s0LBlKGTH20nN2EeS9w1bvlxxz5Szb9w6sdafE0pyiotque1QPzp4XQyDO7hf88RhE1ofnSkQKL1ofLHnYXNINn1px6PSBpKY-XSpf4nf5YQmGrpi0G-njmQRrqlFuNkIQ6kLR1wt0HwD2nCywJpCxNkGwFfeo2U-wJBFfMTD4uvdGoUyKaWdg\")",
+      "Bash(SPOTIFY_CLIENT_ID=\"fceeb93b54a14acb927d2ee44845e679\" SPOTIFY_CLIENT_SECRET=\"7e206ae0619144e1bd355f3da8b9f747\" SPOTIFY_REFRESH_TOKEN=\"AQDBavDzncUsNMeB82RJYyaZWww8mnE4Q1Z9VQbi0LbaseTP6kgkVxkOGpdPbEAY2DbKgXmzMjj32UBPajgGMym-fV0-ClG1lTwga-4ybdb2a-3YM-KpAiFf93jr4aEpJww\" node scripts/fetch-spotify.js)",
+      "Bash(STRAVA_CLIENT_ID=\"181826\" STRAVA_CLIENT_SECRET=\"d5c916fa19b2d045c0275dd839450a51668045a5\" node scripts/get-strava-token.js)",
+      "Bash(STRAVA_CLIENT_ID=\"181826\" STRAVA_CLIENT_SECRET=\"d5c916fa19b2d045c0275dd839450a51668045a5\" node scripts/get-strava-token.js \"07f469355fee1dcc8498a8cd80f7f2840a8cd3de\")",
+      "Bash(STRAVA_CLIENT_ID=\"181826\" STRAVA_CLIENT_SECRET=\"d5c916fa19b2d045c0275dd839450a51668045a5\" STRAVA_REFRESH_TOKEN=\"45c64e9b48380861e0ad978aacc8b2fb979e86b3\" node scripts/fetch-strava.js)",
+      "WebFetch(domain:www.imdb.com)",
+      "Bash(node scripts/parse-imdb.js imdb-export.csv)",
+      "WebFetch(domain:shohbaxt.substack.com)",
+      "Bash(node scripts/fetch-substack.js)",
+      "WebFetch(domain:fotografinya.uz)"
     ]
   }
 }

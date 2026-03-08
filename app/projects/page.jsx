@@ -1,5 +1,5 @@
 import { SITE_DATA, SITE_URL } from "@/lib/data";
-import Link from "next/link";
+import ProjectLink from "./ProjectLink";
 
 export const metadata = {
   title: "Projects",
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
         {SITE_DATA.projects.map((p, i) => (
           <div key={i} className="mini-card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", fontWeight: "bold" }}>{p.name}</a>
+              <ProjectLink url={p.url} style={{ fontSize: "13px", fontWeight: "bold" }}>{p.name}</ProjectLink>
               <StatusBadge status={p.status} />
             </div>
             <p style={{ fontSize: "12px", margin: "4px 0 6px 0" }}>{p.desc}</p>
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
         <tbody>
           {SITE_DATA.projects.map((p, i) => (
             <tr key={i}>
-              <td><a href={p.url} target="_blank" rel="noopener noreferrer">{p.name}</a></td>
+              <td><ProjectLink url={p.url}>{p.name}</ProjectLink></td>
               <td>{p.desc}</td>
               <td className="text-small text-muted">{p.tech}</td>
               <td style={{ whiteSpace: "nowrap" }}><StatusBadge status={p.status} /></td>

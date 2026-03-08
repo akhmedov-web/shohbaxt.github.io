@@ -11,7 +11,12 @@ const typeLabels = ["peak", "waterfall", "lake", "canyon"];
 export default function PlacesPage() {
   return (
     <div>
-      <h2 className="section-title">Recenly hiked places</h2>
+      <h2 className="section-title">
+        Recently hiked places
+        <span className="text-small" style={{ fontWeight: "normal", color: "var(--faint)", marginLeft: "8px" }}>
+          via Tripz
+        </span>
+      </h2>
       <div style={{ marginBottom: "10px", fontSize: "11px" }}>
         {typeLabels.map((type) => (
           <span key={type} style={{ marginRight: "12px" }}>
@@ -42,7 +47,7 @@ export default function PlacesPage() {
       <table className="data-table hide-mobile">
         <thead>
           <tr>
-            <th>Place</th>
+            <th>Title</th>
             <th>Type</th>
             <th>Elevation</th>
             <th>Date</th>
@@ -63,7 +68,12 @@ export default function PlacesPage() {
         </tbody>
       </table>
       <p className="text-small" style={{ color: "var(--faint)" }}>
-        Mostly around Chimgan, Bostanliq, and the western Tian Shan foothills. Updated after each trip.
+        Last updated:{" "}
+        {new Date(SITE_DATA.recentPlaces[0].date).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}
       </p>
     </div>
   );

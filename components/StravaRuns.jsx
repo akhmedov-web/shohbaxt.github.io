@@ -60,7 +60,7 @@ export default function StravaRuns() {
       <table className="data-table hide-mobile">
         <thead>
           <tr>
-            <th>Run</th>
+            <th>Title</th>
             <th>Distance</th>
             <th>Pace</th>
             <th>Time</th>
