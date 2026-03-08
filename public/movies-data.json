@@ -1,0 +1,49 @@
+{
+  "movies": [
+    {
+      "title": "Saving Private Ryan",
+      "year": 1998,
+      "imdbRating": "8.6",
+      "myRating": "9/10",
+      "genres": "Drama, War",
+      "director": "Steven Spielberg",
+      "runtime": "169m",
+      "url": "https://www.imdb.com/title/tt0120815/",
+      "dateRated": "2026-01-07"
+    },
+    {
+      "title": "The Wonderful Story of Henry Sugar",
+      "year": 2023,
+      "imdbRating": "7.4",
+      "myRating": "8/10",
+      "genres": "Short, Adventure, Comedy, Drama",
+      "director": "Wes Anderson",
+      "runtime": "40m",
+      "url": "https://www.imdb.com/title/tt16968450/",
+      "dateRated": "2026-01-07"
+    },
+    {
+      "title": "Back to the Future",
+      "year": 1985,
+      "imdbRating": "8.5",
+      "myRating": "9/10",
+      "genres": "Adventure, Comedy, Sci-Fi",
+      "director": "Robert Zemeckis",
+      "runtime": "116m",
+      "url": "https://www.imdb.com/title/tt0088763/",
+      "dateRated": "2026-01-01"
+    },
+    {
+      "title": "The Office",
+      "year": "2005–2013",
+      "imdbRating": "9.0",
+      "myRating": "9/10",
+      "genres": "Comedy",
+      "director": "Greg Daniels",
+      "runtime": null,
+      "url": "https://www.imdb.com/title/tt0386676/",
+      "dateRated": "2025-11-29"
+    }
+  ],
+  "updated": "2026-03-08T03:49:57.702Z"
+}
