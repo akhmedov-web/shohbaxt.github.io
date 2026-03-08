@@ -15,7 +15,7 @@ export default function HomePage() {
       <h2 className="section-title">About me</h2>
       <p style={{ fontSize: "14px", color: "var(--muted)", margin: "0 0 20px 0", lineHeight: "1.7" }}>
         Hey — I&apos;m a software engineering student at Turin Polytechnic University in Tashkent.<br />
-        I craft experiences mostly with JavaScript.
+        Mostly building web stuff with JavaScript.
       </p>
 
       <div className="mini-card" style={{ maxWidth: "420px" }}>
