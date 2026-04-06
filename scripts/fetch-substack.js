@@ -5,7 +5,11 @@ const SUBSTACK_FEED = "https://shohbaxt.substack.com/feed";
 
 async function main() {
   console.log("Fetching Substack RSS feed...");
-  const res = await fetch(SUBSTACK_FEED);
+  const res = await fetch(SUBSTACK_FEED, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (compatible; PersonalSite/1.0)",
+    },
+  });
   if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
   const xml = await res.text();
 

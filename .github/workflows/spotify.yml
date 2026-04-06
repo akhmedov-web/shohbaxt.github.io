@@ -30,6 +30,7 @@ jobs:
         run: node scripts/fetch-strava.js
 
       - name: Fetch Substack articles
+        continue-on-error: true
         run: node scripts/fetch-substack.js
 
       - name: Commit and push if changed
