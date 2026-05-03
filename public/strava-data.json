@@ -1,8 +1,15 @@
 {
-  "totalRuns": 36,
-  "totalKm": "351",
-  "recentKm": "5.0",
+  "totalRuns": 37,
+  "totalKm": "356",
+  "recentKm": "10.4",
   "recentRuns": [
+    {
+      "name": "Run",
+      "distance": "5.4 km",
+      "pace": "7:12 /km",
+      "date": "May 3",
+      "elapsed": "38m 46s"
+    },
     {
       "name": "Run",
       "distance": "5.0 km",
@@ -51,14 +58,7 @@
       "pace": "5:56 /km",
       "date": "Oct 26",
       "elapsed": "2h 6m"
-    },
-    {
-      "name": "Evening run | Mitridat",
-      "distance": "17.0 km",
-      "pace": "7:20 /km",
-      "date": "Oct 21",
-      "elapsed": "2h 4m"
     }
   ],
-  "updated": "2026-05-03T13:25:33.879Z"
+  "updated": "2026-05-03T19:09:20.900Z"
 }
