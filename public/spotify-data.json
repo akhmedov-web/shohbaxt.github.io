@@ -1,6 +1,48 @@
 {
   "songs": [
     {
+      "track": "Paparazzi - Instrumental",
+      "artist": "Xzibit",
+      "album": "Paparazzi",
+      "added": "2026-06-29T16:02:44Z",
+      "url": "https://open.spotify.com/track/1YPjRsqsEi8LwIuaLamCu3"
+    },
+    {
+      "track": "About A Girl",
+      "artist": "Nirvana",
+      "album": "Bleach",
+      "added": "2026-06-09T09:30:10Z",
+      "url": "https://open.spotify.com/track/2SHTKB8YYlawTGIuJ2b2ok"
+    },
+    {
+      "track": "Lithium",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "added": "2026-06-08T23:16:47Z",
+      "url": "https://open.spotify.com/track/5vHLwhxxlGzmClMcxRRFPr"
+    },
+    {
+      "track": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "added": "2026-06-08T23:16:38Z",
+      "url": "https://open.spotify.com/track/4CeeEOM32jQcH3eN9Q2dGj"
+    },
+    {
+      "track": "Come As You Are",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "added": "2026-06-08T23:16:30Z",
+      "url": "https://open.spotify.com/track/2RsAajgo0g7bMCHxwH3Sk0"
+    },
+    {
+      "track": "In Bloom",
+      "artist": "Nirvana",
+      "album": "Nevermind (Remastered)",
+      "added": "2026-06-08T23:16:02Z",
+      "url": "https://open.spotify.com/track/2mvffzYUJ9Ld9xhsF5DUjU"
+    },
+    {
       "track": "SICKO MODE",
       "artist": "Travis Scott",
       "album": "ASTROWORLD",
@@ -97,49 +139,7 @@
       "album": "Presenting the Fabulous Ronettes Featuring Veronica",
       "added": "2026-01-26T16:04:38Z",
       "url": "https://open.spotify.com/track/1WN4uNclrDuczTO3bCr8s1"
-    },
-    {
-      "track": "Piano Man",
-      "artist": "Billy Joel",
-      "album": "Piano Man (Legacy Edition)",
-      "added": "2026-01-26T15:37:33Z",
-      "url": "https://open.spotify.com/track/70C4NyhjD5OZUMzvWZ3njJ"
-    },
-    {
-      "track": "Losing My Religion",
-      "artist": "R.E.M.",
-      "album": "Out Of Time (25th Anniversary Edition)",
-      "added": "2026-01-22T12:58:04Z",
-      "url": "https://open.spotify.com/track/31AOj9sFz2gM0O3hMARRBx"
-    },
-    {
-      "track": "Let Down",
-      "artist": "Radiohead",
-      "album": "OK Computer",
-      "added": "2026-01-22T12:58:00Z",
-      "url": "https://open.spotify.com/track/2fuYa3Lx06QQJAm0MjztKr"
-    },
-    {
-      "track": "La Isla Bonita",
-      "artist": "Madonna",
-      "album": "True Blue",
-      "added": "2026-01-22T12:57:58Z",
-      "url": "https://open.spotify.com/track/6r8k1vznHrzlEKYxL4dZEe"
-    },
-    {
-      "track": "American Pie",
-      "artist": "Don McLean",
-      "album": "American Pie",
-      "added": "2026-01-20T12:49:37Z",
-      "url": "https://open.spotify.com/track/1fDsrQ23eTAVFElUMaf38X"
-    },
-    {
-      "track": "Eyes Without A Face",
-      "artist": "Billy Idol",
-      "album": "Rebel Yell",
-      "added": "2026-01-20T12:36:03Z",
-      "url": "https://open.spotify.com/track/0pUVeEgZuNyFzIMKp67RbS"
     }
   ],
-  "updated": "2026-06-04T15:30:31.643Z"
+  "updated": "2026-06-30T20:06:05.361Z"
 }
