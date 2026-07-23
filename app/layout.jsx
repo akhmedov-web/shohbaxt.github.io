@@ -21,7 +21,6 @@ export const metadata = {
     "software engineer Tashkent",
     "React developer Uzbekistan",
     "Next.js developer",
-    "Tripz hiking",
     "Turin Polytechnic Tashkent",
     "web developer Tashkent",
   ],
