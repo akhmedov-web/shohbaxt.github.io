@@ -5,7 +5,12 @@ on:
     # Daily, 03:17 UTC (08:17 Tashkent). Off the hour on purpose — GitHub
     # queues scheduled runs hardest at :00 and delays them.
     - cron: "17 3 * * *"
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:
+    inputs:
+      fetch_substack:
+        description: "Also fetch Substack articles (only needed after publishing one)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -21,8 +26,8 @@ jobs:
           node-version: 22
 
       # Each fetch is allowed to fail on its own. Without continue-on-error a
-      # single dead token skips every later step, including the commit, so all
-      # every later feed goes stale at once (this is what happened on 2026-06-30).
+      # single dead token skips every later step, including the commit — which
+      # is how one 403 from Strava froze the whole site from 2026-06-30 on.
       - name: Fetch Spotify liked songs
         id: spotify
         continue-on-error: true
@@ -44,8 +49,12 @@ jobs:
       #     STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
       #   run: node scripts/fetch-strava.js
 
+      # Off the daily schedule — nothing is being published on Substack right
+      # now, so a nightly fetch only adds a way for the run to go red. Tick the
+      # box on a manual run after publishing. "inputs" is null on a schedule.
       - name: Fetch Substack articles
         id: substack
+        if: inputs.fetch_substack
         continue-on-error: true
         run: node scripts/fetch-substack.js
 

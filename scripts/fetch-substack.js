@@ -10,7 +10,13 @@ async function main() {
       "User-Agent": "Mozilla/5.0 (compatible; PersonalSite/1.0)",
     },
   });
-  if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+  if (!res.ok) {
+    // Substack sits behind Cloudflare and is far stricter with datacenter IPs
+    // than with a home connection, so this can fail on a runner and still work
+    // locally. Keep the body — the status alone never says which it was.
+    const body = (await res.text()).slice(0, 300);
+    throw new Error(`Fetch failed: ${res.status} ${body}`);
+  }
   const xml = await res.text();
 
   const articles = [];
