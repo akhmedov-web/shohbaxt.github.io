@@ -2,7 +2,9 @@ name: Fetch API Data
 
 on:
   schedule:
-    - cron: "0 */6 * * *" # every 6 hours
+    # Daily, 03:17 UTC (08:17 Tashkent). Off the hour on purpose — GitHub
+    # queues scheduled runs hardest at :00 and delays them.
+    - cron: "17 3 * * *"
   workflow_dispatch: # manual trigger
 
 permissions:
@@ -12,33 +14,75 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
+      # Each fetch is allowed to fail on its own. Without continue-on-error a
+      # single dead token skips every later step, including the commit, so all
+      # every later feed goes stale at once (this is what happened on 2026-06-30).
       - name: Fetch Spotify liked songs
+        id: spotify
+        continue-on-error: true
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
         run: node scripts/fetch-spotify.js
 
-      - name: Fetch Strava running data
-        env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-        run: node scripts/fetch-strava.js
+      # Strava is unwired for now (the runs page is parked at app/_running).
+      # Re-authorize with scripts/get-strava-token.js for the profile:read_all
+      # scope, then uncomment this and the token-rotation step below.
+      # - name: Fetch Strava running data
+      #   id: strava
+      #   continue-on-error: true
+      #   env:
+      #     STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+      #     STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+      #     STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+      #   run: node scripts/fetch-strava.js
 
       - name: Fetch Substack articles
+        id: substack
         continue-on-error: true
         run: node scripts/fetch-substack.js
+
+      # Strava hands back a new refresh token whenever it rotates one, and the
+      # old one stops working. Store it or the next run is locked out for good.
+      # Needs a PAT with "secrets: write"; without one we only warn.
+      # - name: Persist rotated Strava refresh token
+      #   if: hashFiles('.strava-refresh-token') != ''
+      #   continue-on-error: true
+      #   env:
+      #     GH_TOKEN: ${{ secrets.SECRETS_PAT }}
+      #   run: |
+      #     if [ -z "$GH_TOKEN" ]; then
+      #       echo "::warning::Strava rotated its refresh token but SECRETS_PAT is not set."
+      #       echo "::warning::Update STRAVA_REFRESH_TOKEN by hand or the next run will fail."
+      #       exit 0
+      #     fi
+      #     gh secret set STRAVA_REFRESH_TOKEN --body "$(cat .strava-refresh-token)"
+      #     echo "STRAVA_REFRESH_TOKEN updated."
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/spotify-data.json public/strava-data.json public/articles-data.json
+          git add public/spotify-data.json public/articles-data.json
           git diff --staged --quiet || (git commit -m "chore: update api data" && git push)
+
+      # Runs last so a broken feed still commits the healthy ones, but the run
+      # goes red and GitHub emails about it instead of failing silently.
+      - name: Report failed feeds
+        if: always()
+        run: |
+          failed=""
+          if [ "${{ steps.spotify.outcome }}"  = "failure" ]; then failed="$failed spotify"; fi
+          if [ "${{ steps.substack.outcome }}" = "failure" ]; then failed="$failed substack"; fi
+          if [ -n "$failed" ]; then
+            echo "::error::Failed feeds:$failed — check the step logs above, likely an expired token."
+            exit 1
+          fi
+          echo "All feeds updated."

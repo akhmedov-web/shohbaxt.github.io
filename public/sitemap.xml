@@ -6,6 +6,5 @@
   <url><loc>https://shohbaxt.github.io/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shohbaxt.github.io/places</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://shohbaxt.github.io/now-playing</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
-  <url><loc>https://shohbaxt.github.io/running</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://shohbaxt.github.io/movies</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 </urlset>

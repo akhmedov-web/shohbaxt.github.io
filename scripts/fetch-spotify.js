@@ -18,7 +18,15 @@ async function getAccessToken() {
     }),
   });
   if (!res.ok) {
-    throw new Error(`Token refresh failed: ${res.status} ${await res.text()}`);
+    const body = await res.text();
+    if (res.status === 400) {
+      console.error(
+        "SPOTIFY_REFRESH_TOKEN was rejected. It is revoked whenever the Spotify " +
+          "password changes or app access is withdrawn. Re-authorize with " +
+          "scripts/get-refresh-token.js and update the SPOTIFY_REFRESH_TOKEN secret."
+      );
+    }
+    throw new Error(`Token refresh failed: ${res.status} ${body}`);
   }
   const data = await res.json();
   return data.access_token;

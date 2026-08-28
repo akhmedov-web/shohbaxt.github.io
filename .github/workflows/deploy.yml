@@ -3,6 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Pushes made by the fetch workflow use GITHUB_TOKEN, and GitHub does not
+  # fire "push" for those — so data commits alone never rebuilt the site.
+  # workflow_run does fire, so the new data actually reaches Pages.
+  workflow_run:
+    workflows: ["Fetch API Data"]
+    types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,11 +24,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      # Pin to main. On a workflow_run trigger the default checkout can land on
+      # the SHA that started the fetch run, which predates its own data commit
+      # — that would deploy yesterday's JSON.
+      - uses: actions/checkout@v5
         with:
-          node-version: 20
+          ref: main
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
           cache: npm
 
       - run: npm ci

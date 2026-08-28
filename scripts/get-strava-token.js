@@ -21,7 +21,10 @@ if (!code) {
     client_id: CLIENT_ID,
     response_type: "code",
     redirect_uri: "https://shohbaxt.github.io/running",
-    scope: "activity:read_all",
+    // profile:read_all is required by GET /api/v3/athlete, which the fetch
+    // script needs for the athlete id behind the totals. Without it Strava
+    // answers 403 even though the token itself is valid.
+    scope: "profile:read_all,activity:read_all",
     approval_prompt: "auto",
   }).toString()}`;
 
